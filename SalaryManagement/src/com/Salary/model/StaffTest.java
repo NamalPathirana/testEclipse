@@ -2,62 +2,47 @@ package com.Salary.model;
 
 public class StaffTest {
 
-	private int empID;
+	private int empId;
 	private String position;
+	private String name;
 	
 	
-
 	
 	
-	
-	public StaffTest(int empID, String position) {
-		super();
-		this.empID = empID;
-		this.position = position;
-	}
-
-
-
-
-
 	@Override
 	public String toString() {
-		return "StaffTest [empID=" + empID + ", position=" + position + "]";
+		return "StaffTest [empId=" + empId + ", position=" + position + ", name=" + name + "]";
 	}
-
-
-
-
-
-	public int getEmpID() {
-		return empID;
+	
+	public int getEmpId() {
+		return empId;
 	}
-
-
-
-
-
-	public void setEmpID(int empID) {
-		this.empID = empID;
+	public void setEmpId(int empId) {
+		this.empId = empId;
 	}
-
-
-
-
-
 	public String getPosition() {
 		return position;
 	}
-
-
-
-
-
 	public void setPosition(String position) {
 		this.position = position;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+
 	
 	
+	
+
+
+
+
+
+
 	
 	
 }

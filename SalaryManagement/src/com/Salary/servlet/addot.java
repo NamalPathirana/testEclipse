@@ -1,11 +1,13 @@
 package com.Salary.servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.Salary.model.OT;
 import com.Salary.service.IOTServiceImp;
@@ -41,11 +43,16 @@ public class addot extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
-		OT ot=new OT(Integer.parseInt(request.getParameter("empid")),request.getParameter("date"),Integer.parseInt(request.getParameter("hours")));
+		OT ot=new OT(Integer.parseInt(request.getParameter("empId")),request.getParameter("date"),Integer.parseInt(request.getParameter("hours")));
 		
 		IOTServiceImp imp=new OTServiceImp();
 		
-		imp.addOt(ot);
+		int rows=imp.addOt(ot);
+		
+		HttpSession session=request.getSession();
+		
+		session.setAttribute("rowsOT",rows);
+		
 		response.sendRedirect("SalaryManagement.jsp");
 		
 		
