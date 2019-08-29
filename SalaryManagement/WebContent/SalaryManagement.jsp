@@ -118,9 +118,6 @@ session.setAttribute("rowsOT", null);
 
 
 
-
-
-
 <div id="promotionsManagement" class="container" >
 
 <h3 class="interfaceHeader"> Add Promotions </h3>
@@ -186,14 +183,14 @@ session.setAttribute("promError", null);
  
 <div class="form-group col-md-2"> 
 <label>Promotion :</label>
-<input type="text" class="form-control col-form-label-sm" name="promotion" style="width:200px" placeholder="promotion" title="Please enter a valid amount" required><br/>
+<input type="number" class="form-control col-form-label-sm" name="promotion" style="width:200px" placeholder="promotion" title="Please enter a valid amount" required><br/>
 </div> 
 
 </div>
 
 <input type="submit"  value="submit" id="OTsubmit" class="btn btn-primary">
 
-<button id="OTview" class="btn btn-success"><a href="OTView.jsp">Update & Delete</a></button>
+<button id="OTview" class="btn btn-success"><a href="PromotionsView.jsp">Update & Delete</a></button>
 
 
 </form><br/><br/>
@@ -201,6 +198,112 @@ session.setAttribute("promError", null);
 
 
 </div>
+
+
+
+
+<div id="BasicSalary" class="container" >
+
+<h3 class="interfaceHeader"> Add BasicSalary </h3>
+
+
+<form action="addBasicSalary" method="post">
+
+<div id="alert">
+<%if((Integer)session.getAttribute("rowsPro")!=null){%>
+<%int rows=(Integer)session.getAttribute("rowsPro");%>
+<%if(rows>0){%>
+<div class="alert alert-success alert-dismissible fade show" id="Alert" role="alert">
+<p id="error">success.<%=rows%> rows effected</p>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</div>
+<%
+session.setAttribute("rowsPro", null);
+}
+else{%>
+
+<div class="alert alert-danger alert-dismissible fade show" id="Alert" role="alert">
+<p id="error">Error. <%=rows%> rows effected.Entry already exist.</p>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</div>
+<%
+session.setAttribute("rowsPro", null);
+}%>
+
+<%}%>
+
+<%if(session.getAttribute("promError")!=null){%>   <!-- if promotions value exceeds the limitation -->
+
+<div class="alert alert-warning alert-dismissible fade show" id="Alert" role="alert">
+<p id="error">The promotion value should be between 0 and 50,000</p>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</div>
+<%
+session.setAttribute("promError", null);
+}
+%>
+
+<%
+
+
+List positonls;//for the emplyee Positions
+StaffTestServiceImp st2=new StaffTestServiceImp();
+
+System.out.println(st2.getEmpPositions());
+positonls=st2.getEmpPositions();
+
+
+
+%>
+
+</div>
+<div class="form-row" style="background-color:redm">
+
+<div class="form-group col-md-6">
+<label>Employee :</label>
+<select class="form-control col-form-label-sm " name="empId">
+<c:forEach items="<%=positonls%>" var="p">
+<option  value="${p.position}" >${p.position}</option>
+</c:forEach>
+</select>
+</div>
+
+<div class="form-group col-md-2.5">
+<label>Date:</label>
+<input type="date" class="form-control col-form-label-sm" name="date" style="width:200px" value="<%=today%>" title="Enter the date in this format YYYY-MM-DD"  required><br/>
+</div> 
+ 
+<div class="form-group col-md-2"> 
+<label>BasicSalary :</label>
+<input type="number" class="form-control col-form-label-sm" name="basicSalary" style="width:200px" placeholder="basicSalary" title="Please enter a valid amount" required><br/>
+</div> 
+
+</div>
+
+<input type="submit"  value="submit" id="OTsubmit" class="btn btn-primary">
+
+
+
+</form>
+
+<button id="OTview" class="btn btn-success"><a href="PromotionsView.jsp">Update & Delete</a></button>
+
+<br/><br/> <!-- Important -->
+
+</div>
+
+
+
+
+
+
+
+
+
+
 
 
 

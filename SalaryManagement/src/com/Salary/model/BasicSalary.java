@@ -4,6 +4,7 @@ public class BasicSalary {
 	
 	
 	private String postion;
+	private String date;
 	private double basicsalary;
 	
 	
@@ -20,8 +21,17 @@ public class BasicSalary {
 //	
 	
 	
+	
+	
+	
 	public String getPostion() {
 		return postion;
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
 	}
 	public void setPostion(String postion) {
 		this.postion = postion;

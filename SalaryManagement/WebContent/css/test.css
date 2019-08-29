@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+
+
+
+#OTmanagemet{
+	
+	background-color:rgba(171, 171, 169, 0.16);
+	
+	
+}
+
+
+#promotionsManagement{
+	
+	background-color:rgba(171, 171, 169, 0.16);
+	margin-top:30px;
+	
+}
+
+#BasicSalary{
+	
+	background-color:rgba(171, 171, 169, 0.16);
+	margin-top:30px;
+    margin-bottom: 100px;
+	
+}
+
+
+
+body{
+    
+    
+    background-color:rgba(202, 202, 200, 0.16); 
+    padding-top: 10px;
+}
+
+#OTsubmit{
+    
+    position: relative ;
+    float:right ;
+    
+    
+}
+
+
+
+#OTview{
+    
+    position: relative ;
+    float:right ;
+    margin-right:15px;
+    text-decoration: none ;
+    
+
+}
+ 
+a{
+	
+	color:white;
+	
+}
+
+a:hover{
+    
+    color: white;
+    text-decoration: none;
+}
+
+
+h3{
+    padding-top: 10px;
+    letter-spacing: 1px;
+    padding-bottom: 10px;
+
+    
+}
+
+
+#Alert{
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    /* position: relative ; */
+    /* float: right; */
+ 
+    
+}
+
+#veiwTable{
+	
+	padding-top:30px;
+    color: red;
+	
+	
+}
+
+#UpdateOT{
+    
+    background-color:rgba(171, 171, 169, 0.16);
+    
+}
+
+#navAnchor{
+    
+    color:#007bff;
+    
+}
