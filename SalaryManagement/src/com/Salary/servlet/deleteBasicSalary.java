@@ -8,23 +8,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.Salary.model.BasicSalary;
-import com.Salary.model.OT;
 import com.Salary.service.BasicSalaryServiceImp;
-import com.Salary.service.IOTServiceImp;
-import com.Salary.service.OTServiceImp;
+import com.Salary.service.IPromotionsService;
+import com.Salary.service.PromotionsServiceImp;
 
 /**
- * Servlet implementation class addBasicSalary
+ * Servlet implementation class deleteBasicSalary
  */
-@WebServlet("/addBasicSalary")
-public class addBasicSalary extends HttpServlet {
+@WebServlet("/deleteBasicSalary")
+public class deleteBasicSalary extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public addBasicSalary() {
+    public deleteBasicSalary() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,6 +33,27 @@ public class addBasicSalary extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+	
+		String position=request.getParameter("position");	
+		
+		
+		System.out.println(position+" position // "+"  position DELETER");
+		
+		BasicSalaryServiceImp acc=new BasicSalaryServiceImp();
+		
+		int rowsBS=acc.deleteBS(position);
+		
+		
+		HttpSession session=request.getSession();
+		
+		session.setAttribute("rowsBS",rowsBS);
+		
+		response.sendRedirect("BasicSalaryView.jsp");
+	
+	
+	
+	
+	
 	}
 
 	/**
@@ -43,23 +62,6 @@ public class addBasicSalary extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		
-		BasicSalary bs=new BasicSalary();
-		
-		bs.setPostion(request.getParameter("position"));
-		bs.setBasicsalary(Double.parseDouble(request.getParameter("basicSalary")));
-		bs.setDate(request.getParameter("date"));
-		
-		
-		BasicSalaryServiceImp imp=new BasicSalaryServiceImp();
-		
-		int rows=imp.addBS(bs);
-				
-		HttpSession session=request.getSession();
-		
-		session.setAttribute("rowsBS",rows);
-		
-		response.sendRedirect("SalaryManagement.jsp");
 		
 		
 		

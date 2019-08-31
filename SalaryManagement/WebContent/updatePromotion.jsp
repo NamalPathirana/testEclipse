@@ -26,7 +26,7 @@
 <div id="UpdateOT" class="container">
 
 
-<h3 class="interfaceHeader">Update Over Time Information</h3>
+<h3 class="interfaceHeader">Update Promotion Information</h3>
 
 <c:forEach items="${Update}" var="p">
 
@@ -53,7 +53,7 @@ date:<br/>
 
  <div class="form-group form-group col-md-6">  
 Promotion:<br/>
-<input type="number" name="promotion" value="${p.promotion}" style="width:200px" pattern="[1-4]{1}" class="form-control"  title="1 to 4 hours" required><br/>
+<input type="number" name="promotion" value="${p.promotion}" style="width:200px"  class="form-control"  title="" step="0.01" min="0" max="50000" required><br/>
 </div>
 
 

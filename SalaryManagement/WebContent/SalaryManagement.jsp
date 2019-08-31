@@ -32,6 +32,8 @@
 
 <div id="OTmanagemet" class="container" >
 
+
+
 <h3 class="interfaceHeader"> Add OT </h3>
 
 <%
@@ -90,7 +92,7 @@ session.setAttribute("rowsOT", null);
 </div>
 
 <div class="form-group col-md-2.5">
-<label>date:</label>
+<label>Date:</label>
 <input type="date" class="form-control col-form-label-sm" name="date" style="width:200px" value="<%=today%>" title="Enter the date in this format YYYY-MM-DD"  required><br/>
 </div> 
  
@@ -177,13 +179,13 @@ session.setAttribute("promError", null);
 </div>
 
 <div class="form-group col-md-2.5">
-<label>date:</label>
+<label>Date:</label>
 <input type="date" class="form-control col-form-label-sm" name="date" style="width:200px" value="<%=today%>" title="Enter the date in this format YYYY-MM-DD"  required><br/>
 </div> 
  
 <div class="form-group col-md-2"> 
 <label>Promotion :</label>
-<input type="number" class="form-control col-form-label-sm" name="promotion" style="width:200px" placeholder="promotion" title="Please enter a valid amount" required><br/>
+<input type="number" class="form-control col-form-label-sm" name="promotion" style="width:200px" placeholder="promotion" title="Please enter a valid amount" step="0.01" required><br/>
 </div> 
 
 </div>
@@ -210,8 +212,8 @@ session.setAttribute("promError", null);
 <form action="addBasicSalary" method="post">
 
 <div id="alert">
-<%if((Integer)session.getAttribute("rowsPro")!=null){%>
-<%int rows=(Integer)session.getAttribute("rowsPro");%>
+<%if((Integer)session.getAttribute("rowsBS")!=null){%>
+<%int rows=(Integer)session.getAttribute("rowsBS");%>
 <%if(rows>0){%>
 <div class="alert alert-success alert-dismissible fade show" id="Alert" role="alert">
 <p id="error">success.<%=rows%> rows effected</p>
@@ -219,7 +221,7 @@ session.setAttribute("promError", null);
 <span aria-hidden="true">&times;</span>
 </div>
 <%
-session.setAttribute("rowsPro", null);
+session.setAttribute("rowsBS", null);
 }
 else{%>
 
@@ -229,12 +231,12 @@ else{%>
 <span aria-hidden="true">&times;</span>
 </div>
 <%
-session.setAttribute("rowsPro", null);
+session.setAttribute("rowsBS", null);
 }%>
 
 <%}%>
 
-<%if(session.getAttribute("promError")!=null){%>   <!-- if promotions value exceeds the limitation -->
+<%if(session.getAttribute("promBS")!=null){%>   <!-- if BasicSalary value exceeds the limitation -->
 
 <div class="alert alert-warning alert-dismissible fade show" id="Alert" role="alert">
 <p id="error">The promotion value should be between 0 and 50,000</p>
@@ -242,7 +244,7 @@ session.setAttribute("rowsPro", null);
 <span aria-hidden="true">&times;</span>
 </div>
 <%
-session.setAttribute("promError", null);
+session.setAttribute("promBS", null);
 }
 %>
 
@@ -263,8 +265,8 @@ positonls=st2.getEmpPositions();
 <div class="form-row" style="background-color:redm">
 
 <div class="form-group col-md-6">
-<label>Employee :</label>
-<select class="form-control col-form-label-sm " name="empId">
+<label>Position :</label>
+<select class="form-control col-form-label-sm " name="position">
 <c:forEach items="<%=positonls%>" var="p">
 <option  value="${p.position}" >${p.position}</option>
 </c:forEach>
@@ -278,7 +280,7 @@ positonls=st2.getEmpPositions();
  
 <div class="form-group col-md-2"> 
 <label>BasicSalary :</label>
-<input type="number" class="form-control col-form-label-sm" name="basicSalary" style="width:200px" placeholder="basicSalary" title="Please enter a valid amount" required><br/>
+<input type="number" class="form-control col-form-label-sm" name="basicSalary" style="width:200px" placeholder="basicSalary" title="Please enter a valid amount" step="0.01" required><br/>
 </div> 
 
 </div>
@@ -289,7 +291,7 @@ positonls=st2.getEmpPositions();
 
 </form>
 
-<button id="OTview" class="btn btn-success"><a href="PromotionsView.jsp">Update & Delete</a></button>
+<button id="OTview" class="btn btn-success"><a href="BasicSalaryView.jsp">Update & Delete</a></button>
 
 <br/><br/> <!-- Important -->
 
